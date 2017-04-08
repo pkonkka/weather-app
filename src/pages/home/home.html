@@ -1,0 +1,67 @@
+<ion-header>
+
+  <ion-navbar>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="onSetCity()">
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-buttons>    
+    
+    <ion-title>
+      Weather
+    </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <ion-card>
+    <ion-card-header>
+      <h1 text-center>{{ city }}</h1>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+          </ion-col>
+          <ion-col>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <h2>{{ current?.weather[0].description }}</h2>            
+          </ion-col>
+          <ion-col>
+            <h1 class="temp">{{ current?.main.temp | kc }}</h1>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+
+          </ion-col>
+          <ion-col>
+            <p>{{ current?.sys.sunrise }} - {{ current?.sys.sunset }}</p>
+          </ion-col>
+          <ion-col>
+
+          </ion-col>
+        </ion-row>
+
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-list>
+    <button ion-item *ngFor="let forecast of allForecasts; let i = index">
+      <h1>{{ forecast.dt_txt}}</h1>
+      <h2>{{ forecast.weather[0].description}}</h2>
+      <h2>{{ forecast.main.temp | kc }}</h2>
+    </button>
+  </ion-list>
+
+</ion-content>
