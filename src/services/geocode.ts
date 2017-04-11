@@ -7,8 +7,10 @@ import { Observable } from 'rxjs/Rx';
 @Injectable()
 export class GeoCodeService {
 
+    // -------------------------------------------------------------------------
     constructor(private http: Http) {}
 
+    // -------------------------------------------------------------------------
     getGeocode(address: string) {
 
         return this.http.get('https://maps.googleapis.com/maps/api/geocode/json?address=' + address)                

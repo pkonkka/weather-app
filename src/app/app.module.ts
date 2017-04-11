@@ -5,6 +5,7 @@ import { Geolocation } from '@ionic-native/geolocation';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { AddPlacePage } from '../pages/add-place/add-place';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -18,6 +19,7 @@ import { KelvinCelsiusPipe } from '../pipes/kc';
   declarations: [
     MyApp,
     HomePage,
+    AddPlacePage,    
     KelvinCelsiusPipe
   ],
   imports: [
@@ -26,7 +28,8 @@ import { KelvinCelsiusPipe } from '../pipes/kc';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    AddPlacePage
   ],
   providers: [
     StatusBar,

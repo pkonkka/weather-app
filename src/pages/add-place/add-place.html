@@ -1,0 +1,33 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Place</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <form [formGroup]="placeForm" (ngSubmit)="onSubmit()">
+
+    <ion-list>
+      <ion-item>
+        <ion-label fixed>Place</ion-label>
+        <ion-input
+          type="text"
+          formControlName="place">
+        </ion-input>
+      </ion-item>
+    </ion-list>
+
+    <button 
+      ion-button 
+      type="submit" 
+      block
+      [disabled]="!placeForm.valid"
+      >Save Place</button>
+
+  </form>
+
+</ion-content>
+

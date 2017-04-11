@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { LoadingController, ToastController } from 'ionic-angular';
+import { LoadingController, NavController, ToastController } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
+
+import { AddPlacePage } from '../add-place/add-place';
 
 import { GeoCodeService } from '../../services/geocode';
 import { WeatherService } from '../../services/weather';
@@ -11,7 +13,6 @@ import { WeatherService } from '../../services/weather';
 })
 export class HomePage {
 
-  // forecast: Forecast[] = [];
   allForecasts: any;
   current: any;
   city: string = 'Turku';
@@ -21,6 +22,7 @@ export class HomePage {
     private weatherService: WeatherService,
     private geolocation: Geolocation,
     private loadingCtrl: LoadingController,
+    private navCtrl: NavController,
     private toastCtrl: ToastController) {
     
   }
@@ -28,7 +30,7 @@ export class HomePage {
   // ----------------------------------------------------------------------------------
   ionViewWillEnter() {
 
-    this.weatherService.getCurrentWeather(this.city)
+    this.weatherService.getCurrentWeather()
       .subscribe(
         current => {
           this.current = current;
@@ -36,17 +38,12 @@ export class HomePage {
         }
       )
 
-    this.weatherService.getForecast(this.city)
+    this.weatherService.getForecast()
       .subscribe(
         forecast => {
           this.allForecasts = Object.keys(forecast.list).map(key => forecast.list[key]);
         }
       );
-
-  }
-
-  // ----------------------------------------------------------------------------------
-  onSetCity() {
 
   }
 
@@ -61,9 +58,6 @@ export class HomePage {
       .then(
         location => {
           loader.dismiss();
-          // this.location.lat = location.coords.latitude;
-          // this.location.lng = location.coords.longitude;
-          // this.locationIsSet = true;
         }
       )
       .catch(
@@ -78,5 +72,9 @@ export class HomePage {
       );
   }
 
+  // --------------------------------------------------------------------------------
+  onSetPlace() {
+    this.navCtrl.push(AddPlacePage);
+  }
 
 }
