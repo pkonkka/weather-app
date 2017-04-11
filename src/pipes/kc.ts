@@ -7,7 +7,7 @@ import { Injectable, Pipe } from '@angular/core';
 export class KelvinCelsiusPipe {
 
   transform(value, args) {
-    let celsius = Math.round((Number(value) - 273.15) * 10) / 10;
+    let celsius = Math.round(Number(value) - 273.15);
     let retval = celsius.toString() + ' \xB0C';
     return retval;
   }
