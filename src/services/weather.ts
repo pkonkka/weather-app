@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 
+import { GeoCodeService } from './geocode';
+
 @Injectable()
 export class WeatherService {
 
@@ -10,7 +12,7 @@ export class WeatherService {
 
 
     // -----------------------------------------------------------------------------------------------------------
-    constructor(private http: Http) {
+    constructor(private http: Http, private geoCode: GeoCodeService) {
 
 
     }
@@ -19,32 +21,49 @@ export class WeatherService {
     // -----------------------------------------------------------------------------------------------------------
     getCurrentWeather() {
 
-        // if (lat === -1) {
-            return this.http.get(`http://api.openweathermap.org/data/2.5/weather?q=${this.place}&APPID=bdacc3ee6063dd08e4b8ec16805cdbbc`)                
-                .map((res: Response) => res.json())
-                .catch((error: any) => Observable.throw(error.json().error || 'Server error'));        
-        // }
-        // return this.http.get(`http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&APPID=bdacc3ee6063dd08e4b8ec16805cdbbc`)                
-        //     .map((res: Response) => res.json())
-        //     .catch((error: any) => Observable.throw(error.json().error || 'Server error'));        
-
-
+        return this.http.get(`http://api.openweathermap.org/data/2.5/weather?q=${this.place}&APPID=bdacc3ee6063dd08e4b8ec16805cdbbc`)                
+            .map(this.extractWeatherData)
+            .catch(this.handleError);        
     } 
 
     // -----------------------------------------------------------------------------------------------------------
     getForecast() {
 
-        // if (lat === -1) {
-            return this.http.get(`http://api.openweathermap.org/data/2.5/forecast?q=${this.place}&APPID=bdacc3ee6063dd08e4b8ec16805cdbbc`)                
-                .map((res: Response) => res.json())
-                .catch((error: any) => Observable.throw(error.json().error || 'Server error'));        
-        // }
-        // return this.http.get(`http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&APPID=bdacc3ee6063dd08e4b8ec16805cdbbc`)                
-        //     .map((res: Response) => res.json())
-        //     .catch((error: any) => Observable.throw(error.json().error || 'Server error'));        
+        return this.http.get(`http://api.openweathermap.org/data/2.5/forecast?q=${this.place}&APPID=bdacc3ee6063dd08e4b8ec16805cdbbc`)                
+            .map(this.extractForecastData)
+            .catch(this.handleError);        
         
-
     } 
+
+    // -------------------------------------------------------------
+    private extractWeatherData(res: Response) {
+        let body = res.json();
+        return body || {};
+    }
+
+    // -------------------------------------------------------------
+    private extractForecastData(res: Response) {
+        let body = res.json();
+        return body.list || {};
+    }
+
+    // -------------------------------------------------------------
+    private handleError(error: Response | any) {
+        let errMsg: string;
+
+        if (error instanceof Response) {
+            const body = error.json || '';
+    
+            const err = body || JSON.stringify(body);
+            errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
+        } else {
+            errMsg = error.message ? error.message: error.toString();
+        }
+
+        console.log(errMsg);
+
+        return Observable.throw(errMsg);
+    }    
 
     // -----------------------------------------------------------------------------------------------------------
     setPlace(place: string) {

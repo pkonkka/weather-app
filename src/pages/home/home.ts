@@ -40,9 +40,7 @@ export class HomePage {
 
     this.weatherService.getForecast()
       .subscribe(
-        forecast => {
-          this.allForecasts = Object.keys(forecast.list).map(key => forecast.list[key]);
-        }
+        forecast => this.allForecasts = forecast
       );
 
   }
