@@ -38,65 +38,65 @@
         </ion-row>
 
         <ion-row class="details">
-          <ion-col>
+          <ion-col class="details-column">
             <p text-center>Wind</p>
           </ion-col>
-          <ion-col>
+          <ion-col class="details-column">
             <p text-center>{{ current?.wind.speed }} m/s</p>
             <p text-center>{{ current?.wind.deg }}</p>
           </ion-col>
         </ion-row>
 
         <ion-row>
-          <ion-col>
+          <ion-col class="details-column">
             <p text-center>Cloudness</p>
           </ion-col>
-          <ion-col>
+          <ion-col class="details-column">
             <p text-center>{{ current?.weather[0].description }}</p>
           </ion-col>
         </ion-row>
 
         <ion-row>
-          <ion-col>
+          <ion-col class="details-column">
             <p text-center>Pressure</p>
           </ion-col>
-          <ion-col>
+          <ion-col class="details-column">
             <p text-center>{{ current?.main.pressure }} hpa</p>
           </ion-col>
         </ion-row>
 
         <ion-row>
-          <ion-col>
+          <ion-col class="details-column">
             <p text-center>Humidity</p>
           </ion-col>
-          <ion-col>
+          <ion-col class="details-column">
             <p text-center>{{ current?.main.humidity }} %</p>
           </ion-col>
         </ion-row>
 
         <ion-row>
-          <ion-col>
+          <ion-col class="details-column">
             <p text-center>Sunrise</p>
           </ion-col>
-          <ion-col>
+          <ion-col class="details-column">
             <p text-center>{{ current?.sys.sunrise | time }}</p>
           </ion-col>
         </ion-row>
 
         <ion-row>
-          <ion-col>
+          <ion-col class="details-column">
             <p text-center>Sunset</p>
           </ion-col>
-          <ion-col>
+          <ion-col class="details-column">
             <p text-center>{{ current?.sys.sunset | time }}</p>
           </ion-col>
         </ion-row>
 
         <ion-row>
-          <ion-col>
+          <ion-col class="details-column geo-coords">
             <p text-center>Geo coords</p>
           </ion-col>
-          <ion-col>
+          <ion-col class="details-column geo-coords">
             <p text-center>{{ current?.coord.lat }}, {{ current?.coord.lon }}</p>
           </ion-col>
         </ion-row>
