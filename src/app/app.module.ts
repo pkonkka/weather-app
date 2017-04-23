@@ -14,13 +14,15 @@ import { GeoCodeService } from '../services/geocode';
 import { WeatherService } from '../services/weather';
 
 import { KelvinCelsiusPipe } from '../pipes/kc';
+import { TimePipe } from '../pipes/time-pipe';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     AddPlacePage,    
-    KelvinCelsiusPipe
+    KelvinCelsiusPipe,
+    TimePipe
   ],
   imports: [
     IonicModule.forRoot(MyApp)
