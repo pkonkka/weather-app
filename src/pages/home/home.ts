@@ -41,7 +41,11 @@ export class HomePage {
 
     this.weatherService.getForecast()
       .subscribe(
-        forecast => this.allForecasts = forecast
+        forecast => { 
+          this.allForecasts = forecast;
+          console.log('forecast', forecast);
+
+        }
       );
 
   }

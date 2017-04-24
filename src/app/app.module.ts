@@ -14,6 +14,7 @@ import { GeoCodeService } from '../services/geocode';
 import { WeatherService } from '../services/weather';
 
 import { KelvinCelsiusPipe } from '../pipes/kc';
+import { LocalDatePipe } from '../pipes/local-date';
 import { TimePipe } from '../pipes/time-pipe';
 
 @NgModule({
@@ -22,6 +23,7 @@ import { TimePipe } from '../pipes/time-pipe';
     HomePage,
     AddPlacePage,    
     KelvinCelsiusPipe,
+    LocalDatePipe,
     TimePipe
   ],
   imports: [
