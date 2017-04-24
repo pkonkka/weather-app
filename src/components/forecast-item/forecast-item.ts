@@ -6,11 +6,9 @@ import { Component, Input } from '@angular/core';
 })
 export class ForecastItemComponent {
 
-  text: string;
+  @Input() forecast: any;
 
   constructor() {
-    console.log('Hello ForecastItem Component');
-    this.text = 'Hello World';
   }
 
 }

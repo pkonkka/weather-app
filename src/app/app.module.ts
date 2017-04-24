@@ -17,6 +17,8 @@ import { KelvinCelsiusPipe } from '../pipes/kc';
 import { LocalDatePipe } from '../pipes/local-date';
 import { TimePipe } from '../pipes/time-pipe';
 
+import { ForecastItemComponent } from '../components/forecast-item/forecast-item';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -24,7 +26,8 @@ import { TimePipe } from '../pipes/time-pipe';
     AddPlacePage,    
     KelvinCelsiusPipe,
     LocalDatePipe,
-    TimePipe
+    TimePipe,
+    ForecastItemComponent
   ],
   imports: [
     IonicModule.forRoot(MyApp)

@@ -101,17 +101,12 @@
           </ion-col>
         </ion-row>
 
-
       </ion-grid>
     </ion-card-content>
   </ion-card>
 
   <ion-list>
-    <button ion-item *ngFor="let forecast of allForecasts; let i = index">
-      <h1>{{ forecast.dt_txt | localdate }}</h1>
-      <h2>{{ forecast.weather[0].description}}</h2>
-      <h2>{{ forecast.main.temp | kc }}</h2>
-    </button>
+    <forecast-item *ngFor="let forecast of allForecasts; let i = index" [forecast]="forecast"></forecast-item>
   </ion-list>
 
 </ion-content>

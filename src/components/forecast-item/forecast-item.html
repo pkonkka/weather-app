@@ -1,8 +1,5 @@
-<!--
-  Generated template for the ForecastItem component.
-
-  See https://angular.io/docs/ts/latest/api/core/index/ComponentMetadata-class.html
-  for more info on Angular 2 Components.
--->
-
-{{text}}
+<button ion-item>
+    <h1>{{ forecast.dt_txt | localdate }}</h1>
+    <h2>{{ forecast.weather[0].description}}</h2>
+    <h2>{{ forecast.main.temp | kc }}</h2>
+  </button>
