@@ -40,7 +40,6 @@ export class HomePage {
           this.current = current;
           this.city = this.current.name;
           this.iconPath = 'http://openweathermap.org/img/w/' + this.current.weather[0].icon + '.png';
-          console.log('iconPath >>>', this.iconPath)
         }
       )
 
