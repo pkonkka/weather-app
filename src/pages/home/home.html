@@ -27,6 +27,7 @@
 
         <ion-row>
           <ion-col>
+            <img src = "http://openweathermap.org/img/w/01d.png" style="width: 125px; height: 125px;">
             <h1 text-center class="temp">{{ current?.main.temp | kc }}</h1>         
           </ion-col>
         </ion-row>
@@ -42,7 +43,7 @@
             <p text-center>Tuuli</p>
           </ion-col>
           <ion-col class="details-column">
-            <p text-center>{{ current?.wind.speed }} m/s</p>
+            <p text-center>{{ current?.wind.speed | windSpeed }} m/s</p>
             <p text-center>{{ current?.wind.deg | dirFi }}</p>
           </ion-col>
         </ion-row>

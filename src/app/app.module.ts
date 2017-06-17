@@ -17,6 +17,7 @@ import { KelvinCelsiusPipe } from '../pipes/kc';
 import { LocalDatePipe } from '../pipes/local-date';
 import { TimePipe } from '../pipes/time-pipe';
 import { WindDirPipe } from '../pipes/wind-dir'
+import { WindSpeedPipe } from '../pipes/wind-speed'
 
 import { ForecastDayComponent } from '../components/forecast-day/forecast-day';
 import { ForecastItemComponent } from '../components/forecast-item/forecast-item';
@@ -30,6 +31,7 @@ import { ForecastItemComponent } from '../components/forecast-item/forecast-ite
     LocalDatePipe,
     TimePipe,
     WindDirPipe,
+    WindSpeedPipe,
     ForecastItemComponent,
     ForecastDayComponent
   ],
