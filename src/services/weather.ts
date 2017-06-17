@@ -21,7 +21,7 @@ export class WeatherService {
     // -----------------------------------------------------------------------------------------------------------
     getCurrentWeather() {
 
-        return this.http.get(`http://api.openweathermap.org/data/2.5/weather?q=${this.place}&APPID=bdacc3ee6063dd08e4b8ec16805cdbbc`)                
+        return this.http.get(`http://api.openweathermap.org/data/2.5/weather?q=${this.place}&lang=fi&APPID=bdacc3ee6063dd08e4b8ec16805cdbbc`)                
             .map(this.extractWeatherData)
             .catch(this.handleError);        
     } 
@@ -29,7 +29,7 @@ export class WeatherService {
     // -----------------------------------------------------------------------------------------------------------
     getForecast() {
 
-        return this.http.get(`http://api.openweathermap.org/data/2.5/forecast?q=${this.place}&APPID=bdacc3ee6063dd08e4b8ec16805cdbbc`)                
+        return this.http.get(`http://api.openweathermap.org/data/2.5/forecast?q=${this.place}&lang=fi&APPID=bdacc3ee6063dd08e4b8ec16805cdbbc`)                
             .map(this.extractForecastData)
             .catch(this.handleError);        
         

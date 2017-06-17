@@ -38,6 +38,7 @@ export class HomePage {
         current => {
           this.current = current;
           this.city = this.current.name;
+          console.log(this.current);
         }
       )
 

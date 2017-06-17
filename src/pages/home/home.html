@@ -9,7 +9,7 @@
     </ion-buttons>    
     
     <ion-title>
-      Weather
+      Peten sääpalvelu
     </ion-title>
   </ion-navbar>
 
@@ -39,35 +39,35 @@
 
         <ion-row class="details">
           <ion-col class="details-column">
-            <p text-center>Wind</p>
+            <p text-center>Tuuli</p>
           </ion-col>
           <ion-col class="details-column">
             <p text-center>{{ current?.wind.speed }} m/s</p>
-            <p text-center>{{ current?.wind.deg }}</p>
+            <p text-center>{{ current?.wind.deg | dirFi }}</p>
           </ion-col>
         </ion-row>
 
         <ion-row>
           <ion-col class="details-column">
-            <p text-center>Cloudness</p>
+            <p text-center>Pilvisyys</p>
           </ion-col>
           <ion-col class="details-column">
             <p text-center>{{ current?.weather[0].description }}</p>
           </ion-col>
         </ion-row>
 
-        <ion-row>
+        <!--<ion-row>
           <ion-col class="details-column">
-            <p text-center>Pressure</p>
+            <p text-center>Ilmanpaine</p>
           </ion-col>
           <ion-col class="details-column">
             <p text-center>{{ current?.main.pressure }} hpa</p>
           </ion-col>
-        </ion-row>
+        </ion-row>-->
 
         <ion-row>
           <ion-col class="details-column">
-            <p text-center>Humidity</p>
+            <p text-center>Kosteus</p>
           </ion-col>
           <ion-col class="details-column">
             <p text-center>{{ current?.main.humidity }} %</p>
@@ -76,7 +76,7 @@
 
         <ion-row>
           <ion-col class="details-column">
-            <p text-center>Sunrise</p>
+            <p text-center>Auringonnousu</p>
           </ion-col>
           <ion-col class="details-column">
             <p text-center>{{ current?.sys.sunrise | time }}</p>
@@ -85,7 +85,7 @@
 
         <ion-row>
           <ion-col class="details-column">
-            <p text-center>Sunset</p>
+            <p text-center>Auringonlasku</p>
           </ion-col>
           <ion-col class="details-column">
             <p text-center>{{ current?.sys.sunset | time }}</p>
@@ -94,7 +94,7 @@
 
         <ion-row>
           <ion-col class="details-column geo-coords">
-            <p text-center>Geo coords</p>
+            <p text-center>Koordinaatit</p>
           </ion-col>
           <ion-col class="details-column geo-coords">
             <p text-center>{{ current?.coord.lat }}, {{ current?.coord.lon }}</p>
