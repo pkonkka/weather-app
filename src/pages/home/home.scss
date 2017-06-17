@@ -1,11 +1,13 @@
 page-home {
+    .current {
+        background-color: lightyellow;
+    }
     .temp {
         font-size: 50px;
         font-weight: bold;
     }
     .details {
         margin-top: 20px;
-        
     }
     .details-column {
         border-style: solid;

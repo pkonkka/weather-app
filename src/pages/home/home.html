@@ -15,9 +15,9 @@
 
 </ion-header>
 
-<ion-content padding>
+<ion-content>
 
-  <ion-card>
+  <ion-card class="current">
     <ion-card-header>
       <h1 text-center>{{ city }}</h1>
     </ion-card-header>
@@ -27,7 +27,7 @@
 
         <ion-row>
           <ion-col>
-            <img src = "http://openweathermap.org/img/w/01d.png" style="width: 125px; height: 125px;">
+            <img src={{iconPath}} style="height: 100px; width: 100px">
             <h1 text-center class="temp">{{ current?.main.temp | kc }}</h1>         
           </ion-col>
         </ion-row>

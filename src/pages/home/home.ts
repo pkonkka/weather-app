@@ -19,6 +19,7 @@ export class HomePage {
   forecastArray: any = [[],[]];
   current: any;
   city: string = 'Turku';
+  iconPath: string;
 
   constructor(
     private geoService: GeoCodeService, 
@@ -38,7 +39,8 @@ export class HomePage {
         current => {
           this.current = current;
           this.city = this.current.name;
-          console.log(this.current);
+          this.iconPath = 'http://openweathermap.org/img/w/' + this.current.weather[0].icon + '.png';
+          console.log('iconPath >>>', this.iconPath)
         }
       )
 
