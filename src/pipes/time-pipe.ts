@@ -21,7 +21,12 @@ export class TimePipe {
     let minutes = date.getMinutes();
 
     // result
-    let formattedTime = hours + ':' + minutes;
+    let formattedTime = '99:99';
+    if (minutes >= 10) {
+      formattedTime = hours + ':' + minutes;
+    } else {
+      formattedTime = hours + ':0' + minutes;      
+    }
 
     return formattedTime;
 

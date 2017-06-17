@@ -17,6 +17,7 @@ import { KelvinCelsiusPipe } from '../pipes/kc';
 import { LocalDatePipe } from '../pipes/local-date';
 import { TimePipe } from '../pipes/time-pipe';
 
+import { ForecastDayComponent } from '../components/forecast-day/forecast-day';
 import { ForecastItemComponent } from '../components/forecast-item/forecast-item';
 
 @NgModule({
@@ -27,7 +28,8 @@ import { ForecastItemComponent } from '../components/forecast-item/forecast-ite
     KelvinCelsiusPipe,
     LocalDatePipe,
     TimePipe,
-    ForecastItemComponent
+    ForecastItemComponent,
+    ForecastDayComponent
   ],
   imports: [
     IonicModule.forRoot(MyApp)

@@ -7,6 +7,8 @@ import { AddPlacePage } from '../add-place/add-place';
 import { GeoCodeService } from '../../services/geocode';
 import { WeatherService } from '../../services/weather';
 
+import { localDate } from '../../utils/localDate';
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -14,6 +16,7 @@ import { WeatherService } from '../../services/weather';
 export class HomePage {
 
   allForecasts: any;
+  forecastArray: any = [[],[]];
   current: any;
   city: string = 'Turku';
 
@@ -35,7 +38,6 @@ export class HomePage {
         current => {
           this.current = current;
           this.city = this.current.name;
-          console.log('current', this.current);
         }
       )
 
@@ -43,7 +45,24 @@ export class HomePage {
       .subscribe(
         forecast => { 
           this.allForecasts = forecast;
-          console.log('forecast', forecast);
+
+          let j = 0; let k = 0;
+          for (let i = 0; i < this.allForecasts.length; i++) {
+            console.log(i, this.allForecasts[i].dt_txt);
+
+            // this.forecastArray[j][k++] = this.allForecasts[i];
+            this.forecastArray[k] = [j, new Object(this.allForecasts[i])];
+            console.log(i, j, k);
+
+            if (i < this.allForecasts.length - 1) {
+              if (localDate(this.allForecasts[i].dt_txt) !== localDate(this.allForecasts[i+1].dt_txt)) {                
+                j++; 
+                k = 0;               
+              }
+            }
+
+          }
+          console.log(this.forecastArray);
 
         }
       );
