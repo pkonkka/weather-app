@@ -27,6 +27,11 @@ export class WeatherService {
     } 
 
     // -----------------------------------------------------------------------------------------------------------
+    getCurrentWeatherIcon(current) {
+          return 'http://openweathermap.org/img/w/' + current.weather[0].icon + '.png';        
+    }
+
+    // -----------------------------------------------------------------------------------------------------------
     getForecast() {
 
         return this.http.get(`http://api.openweathermap.org/data/2.5/forecast?q=${this.place}&lang=fi&APPID=bdacc3ee6063dd08e4b8ec16805cdbbc`)                
@@ -34,6 +39,11 @@ export class WeatherService {
             .catch(this.handleError);        
         
     } 
+
+    // -----------------------------------------------------------------------------------------------------------
+    getForecastIcon(forecast) {
+        return 'http://openweathermap.org/img/w/' + forecast.weather[0].icon + '.png';        
+    }
 
     // -------------------------------------------------------------
     private extractWeatherData(res: Response) {

@@ -39,7 +39,8 @@ export class HomePage {
         current => {
           this.current = current;
           this.city = this.current.name;
-          this.iconPath = 'http://openweathermap.org/img/w/' + this.current.weather[0].icon + '.png';
+          // this.iconPath = 'http://openweathermap.org/img/w/' + this.current.weather[0].icon + '.png';
+          this.iconPath = this.weatherService.getCurrentWeatherIcon(this.current);
         }
       )
 
