@@ -15,6 +15,7 @@ import { WeatherService } from '../services/weather';
 
 import { KelvinCelsiusPipe } from '../pipes/kc';
 import { LocalDatePipe } from '../pipes/local-date';
+import { LocalTimePipe } from '../pipes/local-time';
 import { TimePipe } from '../pipes/time-pipe';
 import { WindDirPipe } from '../pipes/wind-dir'
 import { WindSpeedPipe } from '../pipes/wind-speed'
@@ -29,6 +30,7 @@ import { ForecastItemComponent } from '../components/forecast-item/forecast-ite
     AddPlacePage,    
     KelvinCelsiusPipe,
     LocalDatePipe,
+    LocalTimePipe,    
     TimePipe,
     WindDirPipe,
     WindSpeedPipe,

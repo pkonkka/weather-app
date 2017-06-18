@@ -39,7 +39,6 @@ export class HomePage {
         current => {
           this.current = current;
           this.city = this.current.name;
-          // this.iconPath = 'http://openweathermap.org/img/w/' + this.current.weather[0].icon + '.png';
           this.iconPath = this.weatherService.getCurrentWeatherIcon(this.current);
         }
       )
@@ -49,13 +48,13 @@ export class HomePage {
         forecast => { 
           this.allForecasts = forecast;
 
+        console.log(this.allForecasts);
+
           let j = 0; let k = 0;
           for (let i = 0; i < this.allForecasts.length; i++) {
-            console.log(i, this.allForecasts[i].dt_txt);
 
             // this.forecastArray[j][k++] = this.allForecasts[i];
             this.forecastArray[k] = [j, new Object(this.allForecasts[i])];
-            console.log(i, j, k);
 
             if (i < this.allForecasts.length - 1) {
               if (localDate(this.allForecasts[i].dt_txt) !== localDate(this.allForecasts[i+1].dt_txt)) {                
@@ -65,10 +64,10 @@ export class HomePage {
             }
 
           }
-          console.log(this.forecastArray);
 
         }
       );
+
 
   }
 

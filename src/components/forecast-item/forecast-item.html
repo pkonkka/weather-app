@@ -1,6 +1,23 @@
 <button ion-item>
-  <img src={{iconPath}} style="height: 100px; width: 100px">
-  <h1>{{ forecast.dt_txt | localdate }}</h1>
-  <h2>{{ forecast.weather[0].description}}</h2>
-  <h2>{{ forecast.main.temp | kc }}</h2>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <h3>{{ forecast.dt_txt | localtime }}</h3>
+        <h3>{{ forecast.weather[0].description}}</h3>
+        <h3>{{ forecast.main.temp | kc }}</h3>        
+      </ion-col>
+      <ion-col>
+        <img src={{iconPath}} style="height: 50px; width: 50px">              
+      </ion-col>      
+      <ion-col>
+      </ion-col>
+      <ion-col>
+      </ion-col>
+      <ion-col>
+      </ion-col>
+      <ion-col>
+      </ion-col>
+      
+    </ion-row>
+  </ion-grid>
 </button>
